@@ -1,0 +1,3 @@
+Desenvolver um programa em Java que simule o escalonamento de processos num sistema operativo multitarefa. O algoritmo de escalonamento a usar será o algoritmo round robin com prioridade (ver documentação em anexo).
+
+O programa deverá usar como estrutura de dados uma fila com prioridade implementada com um heap.
