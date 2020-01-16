@@ -14,17 +14,15 @@ public class Termo {
         this.expoente = 0;
     }
 
-    Termo(String termo){
+    Termo(String termo) {
         String[] values = termo.split("x");
         if (values.length > 1) {
             this.coeficiente = Integer.parseInt(values[0]);
             this.expoente = Integer.parseInt(values[1]);
-        }
-        else if (termo.contains("x")) {
+        } else if (termo.contains("x")) {
             this.coeficiente = Integer.parseInt(values[0]);
             this.expoente = 1;
-        }
-        else {
+        } else {
             this.coeficiente = Integer.parseInt(values[0]);
         }
     }
@@ -32,6 +30,7 @@ public class Termo {
     public void setCoeficiente(int coeficiente) {
         this.coeficiente = coeficiente;
     }
+
     public void setExpoente(int expoente) {
         this.expoente = expoente;
     }
@@ -39,6 +38,7 @@ public class Termo {
     int getCoeficiente() {
         return this.coeficiente;
     }
+
     int getExpoente() {
         return this.expoente;
     }

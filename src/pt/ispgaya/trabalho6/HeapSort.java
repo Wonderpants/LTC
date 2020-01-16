@@ -1,9 +1,11 @@
 package pt.ispgaya.trabalho6;
 
+import java.util.ArrayList;
+
 public class HeapSort {
 
-    public void sort(Processo[] arrA) {
-        int size = arrA.length;
+    public void sort(ArrayList<Processo> arrA) {
+        int size = arrA.size();
 
         // Build heap
         for (int i = size / 2 - 1; i >= 0; i--)
@@ -14,9 +16,9 @@ public class HeapSort {
         for (int i = size - 1; i >= 0; i--) {
 
             //arrA[0] is a root of the heap and is the max element in heap
-            Processo x = arrA[0];
-            arrA[0] = arrA[i];
-            arrA[i] = x;
+            Processo x = arrA.get(0);
+            arrA.set(0, arrA.get(i));
+            arrA.set(i, x);
 
             // call max heapify on the reduced heap
             heapify(arrA, i, 0);
@@ -24,7 +26,7 @@ public class HeapSort {
     }
 
     // To heapify a subtree with node i
-    void heapify(Processo[] arrA, int heapSize, int i) {
+    void heapify(ArrayList<Processo> arrA, int heapSize, int i) {
         int largest = i; // Initialize largest as root
         int leftChildIdx = 2 * i + 1; // left = 2*i + 1
         int rightChildIdx = 2 * i + 2; // right = 2*i + 2
@@ -32,22 +34,22 @@ public class HeapSort {
         // If left child is larger than root
         if (
                 leftChildIdx < heapSize &&
-                        arrA[leftChildIdx].getP_pri() > arrA[largest].getP_pri()
+                        arrA.get(leftChildIdx).get_pri() > arrA.get(largest).get_pri()
         )
             largest = leftChildIdx;
 
         // If right child is larger than largest so far
         if (
                 rightChildIdx < heapSize &&
-                        arrA[rightChildIdx].getP_pri() > arrA[largest].getP_pri()
+                        arrA.get(rightChildIdx).get_pri() > arrA.get(largest).get_pri()
         )
             largest = rightChildIdx;
 
         // If largest is not root
         if (largest != i) {
-            Processo swap = arrA[i];
-            arrA[i] = arrA[largest];
-            arrA[largest] = swap;
+            Processo swap = arrA.get(i);
+            arrA.set(i, arrA.get(largest));
+            arrA.set(largest, swap);
 
             // Recursive call to  heapify the sub-tree
             heapify(arrA, heapSize, largest);

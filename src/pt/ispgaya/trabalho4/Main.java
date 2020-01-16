@@ -29,7 +29,7 @@ public class Main {
                     System.out.print(" Student Code: ");
                     int code = Read.Int();
                     if (!String.valueOf(code).startsWith("2019")) {
-                        code = Integer.parseInt("2019"+ code);
+                        code = Integer.parseInt("2019" + code);
                     }
                     System.out.print(" Name: ");
                     String name = Read.String();
@@ -48,7 +48,7 @@ public class Main {
                     System.out.print(" Student Code: ");
                     code = Read.Int();
                     Student student = Table.searchStudent(code);
-                    if (student!=null) {
+                    if (student != null) {
                         System.out.println("Student found: " + student.print());
                     } else {
                         System.out.println("Student not found");
@@ -79,11 +79,17 @@ class Chain {
         this.next = null;
     }
 
-    void setNext(Chain next) { this.next = next; }
+    void setNext(Chain next) {
+        this.next = next;
+    }
 
-    Student getStudent() { return this.student; }
+    Student getStudent() {
+        return this.student;
+    }
 
-    Chain getNext() { return this.next; }
+    Chain getNext() {
+        return this.next;
+    }
 
 }
 
@@ -92,6 +98,7 @@ class dispersionTable {
     private Chain[] newHash;
 
     private int MAX_HASH;
+
     private int hash(int key) {
         return key % this.MAX_HASH;
     }
@@ -111,7 +118,7 @@ class dispersionTable {
                     chain = chain.getNext();
                     fmt.append(" -> ").append(chain.getStudent().print());
                 }
-                if (i != newHash.length-1) {
+                if (i != newHash.length - 1) {
                     fmt.append("\n");
                 }
             }
@@ -145,34 +152,42 @@ class dispersionTable {
         this.newHash[pos] = chain;
     }
 
-    void insert(Student student){
+    void insert(Student student) {
         Chain tempChain = new Chain(student);
         int pos = hash(student.getCode());
         Chain posChain = this.getPos(pos);
-        if ( posChain != null ) {
-            while (posChain.getNext() != null) { posChain = posChain.getNext(); }
+        if (posChain != null) {
+            while (posChain.getNext() != null) {
+                posChain = posChain.getNext();
+            }
             posChain.setNext(tempChain);
-        } else { this.setPos(pos, tempChain); }
+        } else {
+            this.setPos(pos, tempChain);
+        }
     }
 
-    void remove(int code){
-        if (String.valueOf(code).startsWith("2019")) { code = Integer.parseInt(String.valueOf(code).substring(4)); }
+    void remove(int code) {
+        if (String.valueOf(code).startsWith("2019")) {
+            code = Integer.parseInt(String.valueOf(code).substring(4));
+        }
         int pos = -1;
-        if ( this.getSize() == 0 ) {
+        if (this.getSize() == 0) {
             System.out.println("Table is empty");
             return;
         }
         for (Chain hash : newHash) {
             pos++;
             Chain p = hash, ant;
-            if (p == null) { continue; }
+            if (p == null) {
+                continue;
+            }
             if (p.getStudent().getCode() == code) {
                 this.setPos(pos, hash.getNext());
                 return;
             } else {
                 ant = p;
                 p = p.getNext();
-                while (p!=null) {
+                while (p != null) {
                     if (p.getStudent().getCode() == code) {
                         ant.setNext(p.getNext());
                         System.out.println("Value eliminated");
@@ -189,24 +204,32 @@ class dispersionTable {
     }
 
     float getOccupationRate() {
-        return ((float) getSize()/newHash.length)*100;
+        return ((float) getSize() / newHash.length) * 100;
     }
 
-    Student searchStudent(int code){
-        if (String.valueOf(code).startsWith("2019")) { code = Integer.parseInt(String.valueOf(code).substring(4)); }
-        if ( this.getSize() == 0 ) {
+    Student searchStudent(int code) {
+        if (String.valueOf(code).startsWith("2019")) {
+            code = Integer.parseInt(String.valueOf(code).substring(4));
+        }
+        if (this.getSize() == 0) {
             System.out.println("Table is empty");
             return null;
         }
         for (Chain hash : newHash) {
             Chain p = hash;
-            if (p == null) { continue; }
-            if (p.getStudent().getCode() == code) { return p.getStudent();
+            if (p == null) {
+                continue;
+            }
+            if (p.getStudent().getCode() == code) {
+                return p.getStudent();
             } else {
                 p = p.getNext();
-                while (p!=null) {
-                    if (p.getStudent().getCode() == code) { return p.getStudent();
-                    } else { p = p.getNext(); }
+                while (p != null) {
+                    if (p.getStudent().getCode() == code) {
+                        return p.getStudent();
+                    } else {
+                        p = p.getNext();
+                    }
                 }
             }
         }

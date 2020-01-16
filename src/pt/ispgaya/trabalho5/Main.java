@@ -31,7 +31,6 @@ public class Main {
                     System.out.print("\n Informe a expressão posfixa (string) -> ");
                     x = Read.String();
                     System.out.print("\t" + Convert.getInfix(x));
-                    ;
                     Read.String();
                     break;
                 }
@@ -139,13 +138,4 @@ class Read {
         return s;
     }
 
-    static double Double() {
-        while (true) {
-            try {
-                return Double.parseDouble(String().trim());
-            } catch (Exception e) {
-                System.out.println("Not a Double");
-            }
-        }
-    }
 }

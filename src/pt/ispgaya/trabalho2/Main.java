@@ -64,9 +64,13 @@ public class Main {
             func = func.replaceAll("([() ])", "");
             String[] vars = func.split("([-+*/])");
             Pilha stack = new Pilha(vars.length);
-            for (String var : vars) { stack.push(var); }
+            for (String var : vars) {
+                stack.push(var);
+            }
             stack.show();
-            for (int i = 0; i < vars.length; i++) { stack.pop(); }
+            for (int i = 0; i < vars.length; i++) {
+                stack.pop();
+            }
             stack.show();
             System.out.println();
         });

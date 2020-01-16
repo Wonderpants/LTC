@@ -50,7 +50,7 @@ public class Main {
                 new BinarySearch(arr, 10);
             }
             long endTime = System.nanoTime();
-            System.out.println(" Took " + (endTime-startTime) + " ns");
+            System.out.println(" Took " + (endTime - startTime) + " ns");
         }
     }
 

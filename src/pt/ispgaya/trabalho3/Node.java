@@ -21,11 +21,19 @@ public class Node {
         this.setProximo(null);
     }
 
-    private void setTermo(Termo termo) { this.termo = termo; }
+    private void setTermo(Termo termo) {
+        this.termo = termo;
+    }
 
-    void setProximo(Node proximo) { this.proximo = proximo; }
+    void setProximo(Node proximo) {
+        this.proximo = proximo;
+    }
 
-    Termo getTermo() { return this.termo; }
+    Termo getTermo() {
+        return this.termo;
+    }
 
-    Node getProximo() { return this.proximo; }
+    Node getProximo() {
+        return this.proximo;
+    }
 }

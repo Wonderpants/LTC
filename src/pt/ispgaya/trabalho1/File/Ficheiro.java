@@ -12,24 +12,24 @@ public class Ficheiro {
     private BufferedReader fr;
     private BufferedWriter fw;
 
-    public void read(String nomeFicheiro ) throws IOException {
-        fr = new BufferedReader( new FileReader( nomeFicheiro ) );
+    public void read(String nomeFicheiro) throws IOException {
+        fr = new BufferedReader(new FileReader(nomeFicheiro));
     }
 
-    public void open(String nomeFicheiro ) throws IOException {
-        fw = new BufferedWriter( new FileWriter( nomeFicheiro ) );
+    public void open(String nomeFicheiro) throws IOException {
+        fw = new BufferedWriter(new FileWriter(nomeFicheiro));
     }
 
     public void close() throws IOException {
         fw.close();
     }
 
-    public String readLine() throws IOException{
+    public String readLine() throws IOException {
         return fr.readLine();
     }
 
-     public void write(String linha ) throws IOException{
-        fw.write( linha, 0, linha.length());
+    public void write(String linha) throws IOException {
+        fw.write(linha, 0, linha.length());
         fw.newLine();
     }
 }

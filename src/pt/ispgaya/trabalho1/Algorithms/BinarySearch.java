@@ -30,7 +30,7 @@ public class BinarySearch {
         }
 
         if (found >= 0) {
-            String space =  found >= 10 ? "\t": "\t\t";
+            String space = found >= 10 ? "\t" : "\t\t";
             System.out.print("Position: " + found + space);
         } else {
             System.out.print("Value not found\t");

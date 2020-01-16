@@ -26,7 +26,9 @@ public class Student {
         this.grade = grade;
     }
 
-    public int getCode() { return this.code; }
+    public int getCode() {
+        return this.code;
+    }
 
     String print() {
         return this.code + " " + this.name + ": " + this.grade;
