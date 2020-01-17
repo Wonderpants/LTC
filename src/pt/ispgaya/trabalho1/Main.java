@@ -4,6 +4,7 @@ package pt.ispgaya.trabalho1;
 //import pt.ispgaya.trabalho1.File.Ficheiro;
 
 import pt.ispgaya.trabalho1.Algorithms.*;
+import pt.ispgaya.trabalho1.File.Ficheiro;
 
 import java.io.IOException;
 import java.util.Random;
@@ -22,8 +23,8 @@ public class Main {
     }
 
     private static void sort(String method, int n) throws IOException {
-//        Ficheiro file = new Ficheiro();
-//        file.open(method + ".csv");
+        Ficheiro file = new Ficheiro();
+        file.open(method + ".csv");
         for (int i = 0; i < n; i++) {
             int[] arr = Main.generateRandomArray((int) Math.pow(10, i));
             long startTime = System.nanoTime();
@@ -33,10 +34,10 @@ public class Main {
                 new BubbleSort(arr);
             }
             long endTime = System.nanoTime();
-//            file.write(i + 1 + "," + (endTime - startTime) / 1000);
+            file.write(i + 1 + "," + (endTime - startTime) / 1000);
             System.out.println("Took " + (endTime - startTime) + " ns");
         }
-//        file.close();
+        file.close();
     }
 
     private static void search(String method, int n) {

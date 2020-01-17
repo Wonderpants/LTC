@@ -23,6 +23,11 @@ public class Main {
         HeapSort heapSort = new HeapSort();
         heapSort.sort(processos); // Sorts processes by priority
 
+        for (Processo processo : processos) {
+            System.out.println(processo);
+        }
+        TimeUnit.SECONDS.sleep(1);
+
         while (processos.size() != 0) {
             Processo processo = processos.get(0);
             processo.set_cpu(processo.get_cpu() + processo.PUSER);

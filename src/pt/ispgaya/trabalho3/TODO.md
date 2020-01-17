@@ -16,6 +16,6 @@ O programa deverá permitir fazer o seguinte:
 
 - Indicar o número de termos do polinómio;
 
-- Ordenar o polinómio por ordem decrescente do expoente (não usar o algoritmo Selection Sort);
+- Ordenar o polinómio por ordem decrescente do expoente;
 
 - Calcular o valor do polinómio para um dado valor de x.
